@@ -3,6 +3,7 @@ from sklearn.cluster import KMeans
 from sklearn import preprocessing
 import pandas as pd
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 home_data = pd.read_csv('housing.csv', usecols = ['longitude', 'latitude', 'median_house_value'])
 home_data.head()
@@ -16,3 +17,4 @@ kmeans = KMeans(n_clusters = 3, random_state = 0, n_init='auto')
 kmeans.fit(X_train_norm)
 
 sns.scatterplot(data = X_train, x = 'longitude', y = 'latitude', hue = kmeans.labels_)
+plt.show()
